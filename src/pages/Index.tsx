@@ -12,6 +12,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const stats = [
   { value: "14.4", prefix: "$", suffix: "B", label: "Spent on 2020 federal elections" },
@@ -84,7 +90,21 @@ const Index = () => {
 
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-in">
               When Money Speaks,{" "}
-              <span className="text-gradient-gold">Legislators</span>{" "}
+              <TooltipProvider>
+                <Tooltip delayDuration={100}>
+                  <TooltipTrigger asChild>
+                    <span className="relative inline-block cursor-help group">
+                      <span className="text-gradient-gold opacity-100 group-hover:opacity-70 transition-opacity duration-300">
+                        Legislators
+                      </span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-gold/80 via-gold/60 to-gold/80 blur-sm group-hover:opacity-30 opacity-60 transition-opacity duration-300 pointer-events-none" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="bg-foreground text-background px-4 py-2 max-w-xs text-center">
+                    <p className="font-medium">Money silences, hinders, and tongties legislators</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>{" "}
               <span className="text-destructive">Can't</span>
             </h1>
 
