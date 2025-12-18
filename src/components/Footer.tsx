@@ -123,11 +123,15 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
               <span>A project by</span>
-              <div className="flex items-center gap-1 px-3 py-1 bg-primary-foreground/10 rounded-full">
+              <a 
+                href="https://www.lifesaverlabs.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 px-3 py-1 bg-primary-foreground/10 rounded-full hover:bg-primary-foreground/20 transition-colors"
+              >
                 <Heart className="h-4 w-4 text-destructive" />
                 <span className="font-medium">Lifesaver Labs</span>
-              </div>
-              {/* PLACEHOLDER: Replace with actual Lifesaver Labs branding */}
+              </a>
             </div>
             <p className="text-xs text-primary-foreground/40">
               © {new Date().getFullYear()} Tongtied.org. Data sourced from public records.
