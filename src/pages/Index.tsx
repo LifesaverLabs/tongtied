@@ -215,6 +215,34 @@ const Index = () => {
                 <ExternalLink className="h-4 w-4" />
               </a>
             </div>
+
+            {/* Internationalization Sub-section */}
+            <div className="mt-12 pt-8 border-t border-primary-foreground/20">
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-4">
+                🌍 Internationalization
+              </h3>
+              <div className="text-primary-foreground/80 space-y-4 text-left">
+                <p>
+                  This isn't just an American problem. Campaign finance silences, hinders, and tongties legislators 
+                  in democracies worldwide—from local councils to national parliaments.
+                </p>
+                <p>
+                  We're happy to focus United States efforts on{" "}
+                  <strong className="text-gold">tongtied.us</strong> and{" "}
+                  <strong className="text-gold">tungtied.us</strong>, dedicating{" "}
+                  <strong className="text-gold">tongtied.org</strong> as an umbrella 
+                  for a wider community of Tongtied activism dedicated to defeating kleptocracies elsewhere.
+                </p>
+                <p>
+                  Each state and country deserves its own movement on this, led by natives and locals who understand 
+                  how money tongties and tungties their own <em>calmunity</em><sup>⁵</sup> (community). 
+                  If you're passionate about campaign finance reform in your region, we want to support your voice.
+                </p>
+                <p className="text-sm text-primary-foreground/60 italic">
+                  ⁵ "Calmunity" — a calm community, one not agitated by the corrupting influence of money in politics.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
