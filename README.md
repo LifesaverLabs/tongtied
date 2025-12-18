@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
+# Tongtied
 
-## Project info
+**When Money Speaks, Legislators Can't**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Tongtied is an interactive web application that educates and advocates for campaign finance reform in the United States. The project demonstrates how campaign contributions and lobbying systematically prevent legislators from passing meaningful reform—essentially "tying their tongues" and preventing them from acting on conscience-driven policy changes.
 
-## How can I edit this code?
+## The Core Problem
 
-There are several ways of editing your application.
+Campaign finance corruption isn't just another issue—it's the foundational issue that prevents solving all other policy problems. This site draws heavily from Lawrence Lessig's work to show how money in politics creates a system where reform becomes structurally impossible.
 
-**Use Lovable**
+## What's Inside
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Interactive Visualizations
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Steric Hindrance Demo**: A chemistry-inspired visualization showing how donor contributions create "friction" that restricts legislative mobility
+- **Entrenchment Visualization**: Explore the "web of donor relationships" that trap legislators in a cycle of obligation
 
-**Use your preferred IDE**
+### Evidence-Based Case Studies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Real-world examples demonstrating how money blocks reform:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **NFL & Youth Sports**: How lobbying delays concussion protocols and CTE research
+- **Tax Preparation Industry**: How lobbying blocks pre-filled tax returns (costing Americans $30B+ annually)
+- **Tobacco Industry**: How contributions delay health reforms
+- **Oil & Gas Industry**: How lobbying prevents climate legislation
 
-Follow these steps:
+### Educational Content
+
+- **The Lessig Solution**: Learn about the "Referendum Presidency" concept and the Citizen Equality Act
+- **Incumbency Analysis**: Why incumbents win 95%+ of elections and how money creates unbeatable advantages
+- **Golden Handcuffs**: How financial ties and fundraising burdens trap legislators
+
+## Technology Stack
+
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui components
+- Recharts for data visualization
+
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/lifesaverlabs/tongtied.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project directory
+cd tongtied
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**We welcome contributions from the public!**
 
-**Use GitHub Codespaces**
+This is an open project and we encourage you to participate:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Fork** this repository
+2. **Create a branch** for your feature or fix
+3. **Submit a Pull Request** with your changes
+4. **Email us** at team@lifesaverlabs.org when you file a PR so we can review it promptly
 
-## What technologies are used for this project?
+Feel free to fork and branch freely. All contributions that advance the cause of campaign finance reform education are welcome.
 
-This project is built with:
+### Ways to Contribute
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Add new case studies with sourced data
+- Improve visualizations and interactivity
+- Fix bugs or improve accessibility
+- Translate content
+- Suggest new educational features
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+This project is part of the **Kohlberg Kommons** (Creative Commons adjoined to moral layer reasoning).
 
-## Can I connect a custom domain to my Lovable project?
+- **Content**: Licensed under [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) - dedicated to the public domain
+- **Code**: Licensed under the [MIT License](LICENSE.md)
 
-Yes, you can!
+See [LICENSE.md](LICENSE.md) for full details.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Data Sources
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project draws from reputable sources including:
+- [OpenSecrets.org](https://www.opensecrets.org)
+- [FollowTheMoney.org](https://www.followthemoney.org)
+- [FEC.gov](https://www.fec.gov)
+- ProPublica
+
+## Contact
+
+- **Email**: team@lifesaverlabs.org
+- **Organization**: Lifesaver Labs Coalition
+
+---
+
+*"The problem is not that our candidates lie—it's that even when they tell the truth, they can't act on it."*
