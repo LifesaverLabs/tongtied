@@ -11,17 +11,23 @@ import {
   Clock
 } from "lucide-react";
 
-interface ExampleData {
+
+interface SourceLink {
+  text: string;
+  url: string;
+}
+
+interface ExampleDataWithLinks {
   industry: string;
   icon: React.ReactNode;
   contributions: string;
   harm: string;
   delayedReforms: string[];
   keyStats: { label: string; value: string }[];
-  sources: string[];
+  sources: SourceLink[];
 }
 
-const examples: ExampleData[] = [
+const examples: ExampleDataWithLinks[] = [
   {
     industry: "NFL & Youth Sports",
     icon: <Brain className="h-8 w-8" />,
@@ -29,7 +35,7 @@ const examples: ExampleData[] = [
     harm: "Chronic traumatic encephalopathy (CTE) affecting thousands of former players; youth brain injuries",
     delayedReforms: [
       "Mandatory concussion protocols delayed by decades",
-      "Youth tackle football age restrictions blocked",
+      "Youth and college tackle football age bans and restrictions blocked — education funds still being used unconscionably to facilitate the routine damaging of young brains who haven't finished brain development or their education, with tackle football injuriously contrary to the aims of education",
       "CTE research funding limited",
       "Settlement caps protecting league finances"
     ],
@@ -38,7 +44,9 @@ const examples: ExampleData[] = [
       { label: "Years NFL denied CTE link", value: "20+" },
       { label: "Settlement fund", value: "$1B" }
     ],
-    sources: ["opensecrets.org/industries/indus.php?ind=N07"]
+    sources: [
+      { text: "OpenSecrets: Sports Lobbying", url: "https://www.opensecrets.org/industries/indus.php?ind=N07" }
+    ]
   },
   {
     industry: "Tax Preparation Industry",
@@ -56,7 +64,9 @@ const examples: ExampleData[] = [
       { label: "Cost to Americans", value: "$30B+" },
       { label: "Countries with pre-filled returns", value: "36" }
     ],
-    sources: ["propublica.org/article/filing-taxes-could-be-free-simple"]
+    sources: [
+      { text: "ProPublica: Filing Taxes Could Be Free", url: "https://www.propublica.org/article/filing-taxes-could-be-free-simple-intuit-turbotax-h-r-block-lobby-against-it" }
+    ]
   },
   {
     industry: "Tobacco Industry",
@@ -64,7 +74,7 @@ const examples: ExampleData[] = [
     contributions: "$480K avg per election cycle to Congress",
     harm: "480,000 deaths per year; 10 years of life lost on average per smoker",
     delayedReforms: [
-      "Surgeon General warning delayed 2+ years",
+      "All forms of harmful nicotine addiction haven't been delegalized and, for sellers, criminalized yet nationwide for youth in upcoming generations for their entire upcoming adulthood — unlike the UK Tobacco and Vapes Bill Act",
       "TV advertising ban took decades",
       "FDA regulation blocked until 2009",
       "Menthol ban still pending after 10+ years"
@@ -74,7 +84,10 @@ const examples: ExampleData[] = [
       { label: "Years of life lost/smoker", value: "10" },
       { label: "Years to FDA regulation", value: "45" }
     ],
-    sources: ["opensecrets.org/industries/indus.php?ind=A02"]
+    sources: [
+      { text: "OpenSecrets: Tobacco Industry", url: "https://www.opensecrets.org/industries/indus.php?ind=A02" },
+      { text: "UK Tobacco and Vapes Bill", url: "https://bills.parliament.uk/bills/3703" }
+    ]
   },
   {
     industry: "Oil & Gas Industry",
@@ -84,7 +97,7 @@ const examples: ExampleData[] = [
     delayedReforms: [
       "Climate legislation delayed 30+ years",
       "Fossil fuel subsidies maintained ($20B/year)",
-      "EPA regulations weakened repeatedly",
+      "Fear, uncertainty, and doubt spread proactively by political classes and commentators on electric vehicle and renewable energy dominant adoption needs, throwing the United States back many years in the green revolution, making our country less ethically competitive or healthy, and threatening to sink much of Florida underwater",
       "Paris Agreement withdrawal (temporary)"
     ],
     keyStats: [
@@ -92,7 +105,10 @@ const examples: ExampleData[] = [
       { label: "Years of climate denial funding", value: "40+" },
       { label: "Lobbying spend (2020s)", value: "$2.6B+" }
     ],
-    sources: ["opensecrets.org/industries/indus.php?ind=E01"]
+    sources: [
+      { text: "OpenSecrets: Oil & Gas Industry", url: "https://www.opensecrets.org/industries/indus.php?ind=E01" },
+      { text: "FollowTheMoney: Energy Sector", url: "https://www.followthemoney.org/show-me?s=CA&y=2022&c-t-eid=2#%5B%7B1%7Cgro=c-t-id" }
+    ]
   }
 ];
 
@@ -186,9 +202,22 @@ export default function ExamplesPage() {
                     </div>
 
                     <div className="mt-6 pt-6 border-t border-border">
-                      <p className="text-xs text-muted-foreground">
-                        Sources: {example.sources.join(", ")}
-                      </p>
+                      <div className="text-xs text-muted-foreground">
+                        <span className="font-medium">Sources: </span>
+                        {example.sources.map((source, idx) => (
+                          <span key={idx}>
+                            <a 
+                              href={source.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:text-gold underline"
+                            >
+                              {source.text}
+                            </a>
+                            {idx < example.sources.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

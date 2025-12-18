@@ -123,46 +123,134 @@ export default function LessigPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Scale className="h-8 w-8" />,
-                title: "Equal Citizens",
-                description: "Public funding of campaigns through citizen vouchers—giving every voter equal voice in funding elections.",
-                details: ["$50-100 vouchers per citizen", "Can donate to any candidate", "Reduces dependence on wealthy donors"]
-              },
-              {
-                icon: <CheckCircle2 className="h-8 w-8" />,
-                title: "Represented Citizens",
-                description: "End partisan gerrymandering through independent redistricting, ensuring fair representation.",
-                details: ["Independent commissions", "Mathematical fairness standards", "Competitive districts"]
-              },
-              {
-                icon: <Lightbulb className="h-8 w-8" />,
-                title: "Equal Voters",
-                description: "Automatic voter registration and ranked-choice voting to maximize participation.",
-                details: ["Automatic registration at 18", "Ranked-choice voting", "End voter suppression"]
-              }
-            ].map((reform) => (
-              <Card key={reform.title} className="p-6">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                  <div className="text-primary">{reform.icon}</div>
-                </div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                  {reform.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {reform.description}
+            <Card className="p-6">
+              <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+                <div className="text-primary"><Scale className="h-8 w-8" /></div>
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                Equal Citizens
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Public funding of campaigns through citizen vouchers—giving every voter equal voice in funding elections.
+              </p>
+              <ul className="space-y-2">
+                {["$50-100 vouchers per citizen", "Can donate to any candidate", "Reduces dependence on wealthy donors"].map((detail, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-sm">
+                    <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className="p-6">
+              <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+                <div className="text-primary"><CheckCircle2 className="h-8 w-8" /></div>
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                Represented Citizens
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                End partisan gerrymandering through independent redistricting, ensuring fair representation.
+              </p>
+              <ul className="space-y-2">
+                {["Independent commissions", "Mathematical fairness standards", "Competitive districts"].map((detail, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-sm">
+                    <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className="p-6">
+              <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+                <div className="text-primary"><Lightbulb className="h-8 w-8" /></div>
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                Equal Voters
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automatic voter registration and ranked-choice voting to maximize participation.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0 mt-0.5" />
+                  <span>
+                    Automatic registration at 18 or 14 under{" "}
+                    <a 
+                      href="https://raisingrights.org/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-gold underline"
+                    >
+                      suffrage for all who suffer and the Raising Rights arguments
+                    </a>
+                  </span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
+                  <span>Ranked-choice voting</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
+                  <span>End voter suppression</span>
+                </li>
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Draft Lessig Section */}
+      <section className="py-16 bg-gold/10 border-y border-gold/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 text-gold text-sm font-medium mb-4">
+              <Scale className="h-4 w-4" />
+              Constitutional Argument
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
+              Drafting or Conscripting Lessig Involuntarily
+            </h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                Given the fundamental nature of the campaign finance reform problem, there exists a compelling 
+                constitutional argument for drafting or conscripting Lawrence Lessig for the Presidency—
+                <strong>voluntarily or involuntarily</strong>—through draft letter, draft petition, or conscription lawsuit.
+              </p>
+              <p>
+                The argument rests on an implied constitutional right: <strong>if the President, as Commander-in-Chief, 
+                holds powers under the War Powers Act to organize citizens into a conscripted draft</strong>, then 
+                correspondingly, citizens enjoy the reciprocal right to conscript qualified, promising candidates 
+                for the Presidency itself. This would be a fundamental condition of Presidency-eligible U.S. citizenship.
+              </p>
+              <Card className="p-6 bg-secondary/50">
+                <h4 className="font-display font-bold text-foreground mb-3">Lessig's Eligibility Window</h4>
+                <p className="text-sm mb-3">
+                  While Lawrence Lessig approaches the 68-year-old age limit under{" "}
+                  <a 
+                    href="https://www.law.cornell.edu/uscode/text/10/1253" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-gold underline"
+                  >
+                    10 USC §1253
+                  </a>
+                  , he will be 67.7 years old in February 2029 and continues to meet all conditions 
+                  for a short-term Referendum Presidency.
                 </p>
-                <ul className="space-y-2">
-                  {reform.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm">
+                  <strong>Critical deadline:</strong> Lessig could complete the Tongtied Referendum Presidency work 
+                  before he turns 68 on June 3, 2029, and ages out of the mandatory retirement age for 
+                  Commanders-in-Chief under 10 USC §1253.
+                </p>
               </Card>
-            ))}
+              <p className="text-sm italic">
+                This unprecedented approach reflects the unprecedented nature of the problem: when the normal 
+                political process is fundamentally corrupted, extraordinary constitutional remedies may be required.
+              </p>
+            </div>
           </div>
         </div>
       </section>
