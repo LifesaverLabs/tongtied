@@ -164,6 +164,7 @@ export default function StericHindrancePage() {
                     {/* Connection lines (rendered first so they appear behind nodes) */}
                     <svg 
                       className="absolute inset-0 w-full h-full pointer-events-none"
+                      viewBox="-200 -200 400 400"
                       style={{ overflow: 'visible' }}
                     >
                       {contributions.map((contrib) => {
@@ -177,8 +178,8 @@ export default function StericHindrancePage() {
                         const length = Math.sqrt(dx * dx + dy * dy);
                         
                         // Normalize and calculate edge points
-                        const nodeRadius = 24; // Half of the 12x12 (48px) node
-                        const centerRadius = 48; // Half of the 24x24 (96px) center
+                        const nodeRadius = 24; // Half of the 48px node
+                        const centerRadius = 48; // Half of the 96px center
                         
                         // Start point: edge of node towards center
                         const startX = nodeX + (dx / length) * nodeRadius;
@@ -191,14 +192,13 @@ export default function StericHindrancePage() {
                         return (
                           <line
                             key={`line-${contrib.id}`}
-                            x1={`calc(50% + ${startX}px)`}
-                            y1={`calc(50% + ${startY}px)`}
-                            x2={`calc(50% + ${endX}px)`}
-                            y2={`calc(50% + ${endY}px)`}
-                            stroke="hsl(var(--gold))"
+                            x1={startX}
+                            y1={startY}
+                            x2={endX}
+                            y2={endY}
+                            stroke="hsl(45, 100%, 50%)"
                             strokeWidth="2"
                             strokeOpacity="0.6"
-                            className="transition-all duration-100"
                           />
                         );
                       })}
