@@ -161,8 +161,51 @@ export default function StericHindrancePage() {
                       </div>
                     </div>
 
+                    {/* Connection lines (rendered first so they appear behind nodes) */}
+                    <svg 
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                      style={{ overflow: 'visible' }}
+                    >
+                      {contributions.map((contrib) => {
+                        const angle = (contrib.angle + currentRotation) * (Math.PI / 180);
+                        const nodeX = Math.cos(angle) * contrib.distance;
+                        const nodeY = Math.sin(angle) * contrib.distance;
+                        
+                        // Calculate the vector from node to center
+                        const dx = -nodeX;
+                        const dy = -nodeY;
+                        const length = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // Normalize and calculate edge points
+                        const nodeRadius = 24; // Half of the 12x12 (48px) node
+                        const centerRadius = 48; // Half of the 24x24 (96px) center
+                        
+                        // Start point: edge of node towards center
+                        const startX = nodeX + (dx / length) * nodeRadius;
+                        const startY = nodeY + (dy / length) * nodeRadius;
+                        
+                        // End point: edge of center towards node
+                        const endX = -(dx / length) * centerRadius;
+                        const endY = -(dy / length) * centerRadius;
+                        
+                        return (
+                          <line
+                            key={`line-${contrib.id}`}
+                            x1={`calc(50% + ${startX}px)`}
+                            y1={`calc(50% + ${startY}px)`}
+                            x2={`calc(50% + ${endX}px)`}
+                            y2={`calc(50% + ${endY}px)`}
+                            stroke="hsl(var(--gold))"
+                            strokeWidth="2"
+                            strokeOpacity="0.6"
+                            className="transition-all duration-100"
+                          />
+                        );
+                      })}
+                    </svg>
+
                     {/* Contribution nodes */}
-                    {contributions.map((contrib, idx) => {
+                    {contributions.map((contrib) => {
                       const angle = (contrib.angle + currentRotation) * (Math.PI / 180);
                       const x = Math.cos(angle) * contrib.distance;
                       const y = Math.sin(angle) * contrib.distance;
@@ -170,20 +213,11 @@ export default function StericHindrancePage() {
                       return (
                         <div
                           key={contrib.id}
-                          className="absolute left-1/2 top-1/2 transition-all duration-300"
+                          className="absolute left-1/2 top-1/2"
                           style={{
                             transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                           }}
                         >
-                          {/* Connection line */}
-                          <div 
-                            className="absolute left-1/2 top-1/2 h-0.5 bg-gold/50 origin-left"
-                            style={{
-                              width: `${contrib.distance - 30}px`,
-                              transform: `translate(-${contrib.distance - 30}px, -1px) rotate(${180 + contrib.angle}deg)`,
-                            }}
-                          />
-                          
                           {/* Node */}
                           <div className="relative group cursor-pointer">
                             <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-gold animate-scale-in">
